@@ -70,11 +70,11 @@ public class HealthcareService {
 
     @POST
     @Path("/payments")
-    public Response settlePayment(Appointment appointment) {
+    public Response settlePayment(PaymentSettlement paymentSettlement) {
         //Check for the appointment number validity
         Gson gson = new Gson();
-        if (appointment.getAppointmentNumber() >= 0) {
-            Payment payment = HealthCareUtil.createNewPaymentEntry(appointment);
+        if (paymentSettlement.getAppointmentNumber() >= 0) {
+            Payment payment = HealthCareUtil.createNewPaymentEntry(paymentSettlement);
             payment.setStatus("Settled");
             HealthcareDao.payments.put(payment.getPaymentID(), payment);
             String jsonResponse = gson.toJson(payment);

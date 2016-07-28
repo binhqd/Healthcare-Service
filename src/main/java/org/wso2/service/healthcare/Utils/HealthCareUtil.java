@@ -3,6 +3,7 @@ package org.wso2.service.healthcare.Utils;
 import org.wso2.service.healthcare.daos.Appointment;
 import org.wso2.service.healthcare.daos.HealthcareDao;
 import org.wso2.service.healthcare.daos.Payment;
+import org.wso2.service.healthcare.daos.PaymentSettlement;
 
 import java.util.Calendar;
 
@@ -10,16 +11,16 @@ import java.util.Calendar;
  * Created by nadeeshaan on 7/21/16.
  */
 public class HealthCareUtil {
-    public static Payment createNewPaymentEntry(Appointment appointment) {
+    public static Payment createNewPaymentEntry(PaymentSettlement paymentSettlement) {
         Payment payment = new Payment();
-        String dob = appointment.getPatient().getDob();
+        String dob = paymentSettlement.getPatient().getDob();
         int discount = checkForDiscounts(dob);
-        String doctor = appointment.getDoctor().getName();
+        String doctor = paymentSettlement.getDoctor().getName();
         payment.setActualFee(HealthcareDao.findDoctorByName(doctor).getFee());
         payment.setDiscount(discount);
         double discounted = (((HealthcareDao.findDoctorByName(doctor).getFee())/100)*(100-discount));
         payment.setDiscounted(discounted);
-        payment.setPatient(appointment.getPatient().getName());
+        payment.setPatient(paymentSettlement.getPatient().getName());
 
         return payment;
     }

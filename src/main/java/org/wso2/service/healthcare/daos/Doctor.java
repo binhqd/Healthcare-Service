@@ -18,18 +18,18 @@ package org.wso2.service.healthcare.daos;
 
 public class Doctor {
 
+    private double fee;
     private String name;
     private String hospital;
     private String category;
     private String availability;
-    private double fee;
 
     public Doctor(String name, String hospital, String category, String availability, double fee) {
+        this.fee = fee;
         this.name = name;
         this.hospital = hospital;
         this.category = category;
         this.availability = availability;
-        this.fee = fee;
     }
 
     public String getName() {
