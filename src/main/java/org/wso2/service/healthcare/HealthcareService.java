@@ -60,12 +60,11 @@ public class HealthcareService {
         String jsonResponse;
 
         if (stock != null && stock.size() > 0) {
-            jsonResponse = gson.toJson(stock);
+            return Response.status(Response.Status.OK) .entity(stock).type(MediaType.APPLICATION_JSON).build();
         } else {
-            jsonResponse = "{\"Status\":\"Could not find any entry for the requested Categiry\"}";
+            Status status = new Status("Could not find any entry for the requested Category");
+            return Response.status(Response.Status.OK) .entity(status).type(MediaType.APPLICATION_JSON).build();
         }
-
-        return Response.ok(jsonResponse, MediaType.APPLICATION_JSON).build();
     }
 
     @POST
@@ -77,21 +76,18 @@ public class HealthcareService {
             Payment payment = HealthCareUtil.createNewPaymentEntry(paymentSettlement);
             payment.setStatus("Settled");
             HealthcareDao.payments.put(payment.getPaymentID(), payment);
-            String jsonResponse = gson.toJson(payment);
-            return Response.ok(jsonResponse, MediaType.APPLICATION_JSON).build();
+            return Response.status(Response.Status.OK) .entity(payment).type(MediaType.APPLICATION_JSON).build();
         } else {
-            String jsonResponse = "{\"Status\":\"Error.Could not Find the Requested appointment ID\"}";
-            return Response.ok(jsonResponse, MediaType.APPLICATION_JSON).build();
+            Status status = new Status("Error.Could not Find the Requested appointment ID");
+            return Response.status(Response.Status.OK) .entity(status).type(MediaType.APPLICATION_JSON).build();
         }
     }
 
     @GET
     @Path("/payments")
     public Response getAllPayments() {
-        Gson gson = new Gson();
         HashMap payments = HealthcareDao.payments;
-        String jsonResponse = gson.toJson(payments);
-        return Response.ok(jsonResponse, MediaType.APPLICATION_JSON).build();
+        return Response.status(Response.Status.OK) .entity(payments).type(MediaType.APPLICATION_JSON).build();
     }
 
     @GET
@@ -102,11 +98,11 @@ public class HealthcareService {
         String jsonResponse;
 
         if (payment != null) {
-            jsonResponse = gson.toJson(payment);
+            return Response.status(Response.Status.OK) .entity(payment).type(MediaType.APPLICATION_JSON).build();
         } else {
-            jsonResponse = "{\"Status\":\"Invalid payment id provided\"}";
+            Status status = new Status("Invalid payment id provided");
+            return Response.status(Response.Status.OK) .entity(status).type(MediaType.APPLICATION_JSON).build();
         }
-        return Response.ok(jsonResponse, MediaType.APPLICATION_JSON).build();
     }
 
     public void fillCategories() {
