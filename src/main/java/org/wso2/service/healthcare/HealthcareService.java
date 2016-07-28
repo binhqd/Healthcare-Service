@@ -38,17 +38,17 @@ public class HealthcareService {
 
     public HealthcareService() {
         fillCategories();
-        HealthcareDao.doctorsList.add((new Doctor("ANURA BANAGALA", "Asiri Hospital", "SURGERY", "9.00 a.m - 11.00 a.m", 7000)));
-        HealthcareDao.doctorsList.add((new Doctor("A.N.K. ABAYAJEEWA", "Durdans Hospital", "SURGERY", "8.00 a.m - 10.00 a.m", 12000)));
-        HealthcareDao.doctorsList.add((new Doctor("ANIL P AMBAWATTA", "Apollo Hospitals", "SURGERY", "3.00 p.m - 5.00 p.m", 8000)));
-        HealthcareDao.doctorsList.add((new Doctor("K. ALAGARATNAM", "Nawaloka Hospital", "CARDIOLOGY", "9.00 a.m - 11.00 a.m", 10000)));
-        HealthcareDao.doctorsList.add((new Doctor("SANJAYA ABEYGUNASEKARA", "Asiri Hospital", "CARDIOLOGY", "8.00 a.m - 10.00 a.m", 4000)));
-        HealthcareDao.doctorsList.add((new Doctor("K. ALAGARATNAM", "Durdans Hospital", "GYNAECOLOGY", "9.00 a.m - 11.00 a.m", 8000)));
-        HealthcareDao.doctorsList.add((new Doctor("SANJAYA ABEYGUNASEKARA", "Asiri Hospital", "GYNAECOLOGY", "8.00 a.m - 10.00 a.m", 11000)));
-        HealthcareDao.doctorsList.add((new Doctor("K. ALAGARATNAM", "Asiri Hospital", "ENT", "9.00 a.m - 11.00 a.m", 4500)));
-        HealthcareDao.doctorsList.add((new Doctor("SANJAYA ABEYGUNASEKARA", "Asiri Hospital", "ENT", "8.00 a.m - 10.00 a.m", 6750)));
-        HealthcareDao.doctorsList.add((new Doctor("AJITH AMARASINGHE", "Durdans Hospital", "PAEDIATRY", "9.00 a.m - 11.00 a.m", 5500)));
-        HealthcareDao.doctorsList.add((new Doctor("SANJAYA ABEYGUNASEKARA", "Nawaloka Hospital", "PAEDIATRY", "8.00 a.m - 10.00 a.m", 10000)));
+        HealthcareDao.doctorsList.add((new Doctor("thomas collins", "grand oak community hospital", "surgery", "9.00 a.m - 11.00 a.m", 7000)));
+        HealthcareDao.doctorsList.add((new Doctor("henry parker", "grand oak community hospital", "ent", "9.00 a.m - 11.00 a.m", 4500)));
+        HealthcareDao.doctorsList.add((new Doctor("abner jones", "grand oak community hospital", "gynaecology", "8.00 a.m - 10.00 a.m", 11000)));
+        HealthcareDao.doctorsList.add((new Doctor("abner jones", "grand oak community hospital", "ent", "8.00 a.m - 10.00 a.m", 6750)));
+        HealthcareDao.doctorsList.add((new Doctor("anne clement", "clemency medical center", "surgery", "8.00 a.m - 10.00 a.m", 12000)));
+        HealthcareDao.doctorsList.add((new Doctor("thomas kirk", "clemency medical center", "gynaecology", "9.00 a.m - 11.00 a.m", 8000)));
+        HealthcareDao.doctorsList.add((new Doctor("cailen cooper", "clemency medical center", "paediatric", "9.00 a.m - 11.00 a.m", 5500)));
+        HealthcareDao.doctorsList.add((new Doctor("seth mears", "pine valley community hospital", "surgery", "3.00 p.m - 5.00 p.m", 8000)));
+        HealthcareDao.doctorsList.add((new Doctor("emeline fulton", "pine valley community hospital", "cardiology", "8.00 a.m - 10.00 a.m", 4000)));
+        HealthcareDao.doctorsList.add((new Doctor("jared morris", "willow gardens general hospital", "cardiology", "9.00 a.m - 11.00 a.m", 10000)));
+        HealthcareDao.doctorsList.add((new Doctor("henry foster", "willow gardens general hospital", "paediatric", "8.00 a.m - 10.00 a.m", 10000)));
     }
 
     @GET
@@ -110,10 +110,10 @@ public class HealthcareService {
     }
 
     public void fillCategories() {
-        HealthcareDao.catergories.add("SURGERY");
-        HealthcareDao.catergories.add("CARDIOLOGY");
-        HealthcareDao.catergories.add("GYNAECOLOGY");
-        HealthcareDao.catergories.add("ENT");
-        HealthcareDao.catergories.add("PAEDIATRY");
+        HealthcareDao.catergories.add("surgery");
+        HealthcareDao.catergories.add("cardiology");
+        HealthcareDao.catergories.add("gynaecology");
+        HealthcareDao.catergories.add("ent");
+        HealthcareDao.catergories.add("paediatric");
     }
 }
